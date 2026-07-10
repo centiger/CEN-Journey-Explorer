@@ -1,0 +1,9 @@
+CEN Journey Explorer v1.3
+
+- 현재 CEN BibleMaps PWA의 places-master.json과 place-map-links-master.json으로 교체
+- BibleMaps의 trustedVisibleLinksForPlace 판정 방식을 Journey 엔진에 이식
+- map_labels에 실제 지명이 확인된 direct/external 지도만 인정
+- 구체 지도 우선, 범용 지도 후순위
+- Journey에서는 최우선 지도 1개만 즉시 열기
+- 확인된 지도가 없으면 임의의 지도를 열지 않음
+- J001의 수동 mapId 지정 제거

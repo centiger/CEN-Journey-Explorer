@@ -13820,13 +13820,13 @@
     "source": "BMPI-places-master",
     "link_type": "direct_visible_on_bsk_map",
     "map_title": "바울의 세 번째 여행",
-    "map_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_47.jpg",
+    "map_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
     "primary_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
-    "alternate_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_47.jpg",
+    "alternate_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
     "preferred_url_policy": "preferred_high_res_for_key_maps",
     "map_url_status": "linked",
     "official_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
-    "preferred_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_47.jpg",
+    "preferred_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
     "url_policy": "prefer_high_res_when_available_else_bsk_official"
   },
   {
@@ -14217,16 +14217,16 @@
     "feature_types": [
       "city"
     ],
-    "source": "BMPI-places-master",
+    "source": "external_user_provided",
     "link_type": "direct_visible_on_bsk_map",
     "map_title": "로마를 향한 바울의 여정",
-    "map_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_48.jpg",
+    "map_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
     "primary_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
-    "alternate_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_48.jpg",
+    "alternate_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
     "preferred_url_policy": "preferred_high_res_for_key_maps",
     "map_url_status": "linked",
     "official_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
-    "preferred_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_48.jpg",
+    "preferred_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
     "url_policy": "prefer_high_res_when_available_else_bsk_official"
   },
   {
@@ -14385,28 +14385,7 @@
     "preferred_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_48.jpg",
     "url_policy": "prefer_high_res_when_available_else_bsk_official"
   },
-  {
-    "place_id": "P351",
-    "official_name": "트레이스 타베르네",
-    "map_id": "BMPI-M035",
-    "map_labels": [
-      "트레이스 타베르네"
-    ],
-    "feature_types": [
-      "city"
-    ],
-    "source": "BMPI-places-master",
-    "link_type": "direct_visible_on_bsk_map",
-    "map_title": "로마를 향한 바울의 여정",
-    "map_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_48.jpg",
-    "primary_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
-    "alternate_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_48.jpg",
-    "preferred_url_policy": "preferred_high_res_for_key_maps",
-    "map_url_status": "linked",
-    "official_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
-    "preferred_url": "https://cms.ibep-prod.com/app/uploads/sites/22/2026/03/nkt_map_48.jpg",
-    "url_policy": "prefer_high_res_when_available_else_bsk_official"
-  },
+  
   {
     "place_id": "P242",
     "official_name": "두아디라",
@@ -15947,7 +15926,7 @@
     "link_type": "external_direct_map",
     "map_type": "google_maps_fallback",
     "map_title": "Google Maps 성경지명 검색: 마가의 다락방",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=Upper%20Room%20biblical%20site%20Israel",
+    "map_url": "http://cfile238.uf.daum.net/image/2259993C57D74F1A24D759",
     "primary_url": "https://www.google.com/maps/search/?api=1&query=Upper%20Room%20biblical%20site%20Israel",
     "alternate_url": null,
     "preferred_url_policy": "google_maps_fallback_when_no_bmpi_or_external",
@@ -17408,31 +17387,7 @@
     "verification_status": "generated_fallback_not_biblical_map",
     "qa_note": "Google fallback은 한국어 단독 검색 오탐을 막기 위해 영어명/성경지명/국가 힌트를 포함해 생성함."
   },
-  {
-    "place_id": "P188",
-    "official_name": "실루기아",
-    "map_id": "GOOGLE-QA-REPAIR-P188",
-    "map_labels": [
-      "실루기아"
-    ],
-    "feature_types": [
-      "google_maps_fallback"
-    ],
-    "source": "google_maps_fallback_qa_repair_0630",
-    "link_type": "external_direct_map",
-    "map_type": "google_maps_fallback",
-    "map_title": "Google Maps 성경지명 검색: 실루기아",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=%EC%8B%A4%EB%A3%A8%EA%B8%B0%EC%95%84%20%EC%84%B1%EA%B2%BD%20%EC%A7%80%EB%AA%85%20Israel",
-    "primary_url": "https://www.google.com/maps/search/?api=1&query=%EC%8B%A4%EB%A3%A8%EA%B8%B0%EC%95%84%20%EC%84%B1%EA%B2%BD%20%EC%A7%80%EB%AA%85%20Israel",
-    "alternate_url": null,
-    "preferred_url_policy": "google_maps_fallback_when_qa_failed_or_missing",
-    "map_url_status": "google_fallback_generated",
-    "official_url": "https://www.google.com/maps/search/?api=1&query=%EC%8B%A4%EB%A3%A8%EA%B8%B0%EC%95%84%20%EC%84%B1%EA%B2%BD%20%EC%A7%80%EB%AA%85%20Israel",
-    "preferred_url": "https://www.google.com/maps/search/?api=1&query=%EC%8B%A4%EB%A3%A8%EA%B8%B0%EC%95%84%20%EC%84%B1%EA%B2%BD%20%EC%A7%80%EB%AA%85%20Israel",
-    "url_policy": "fallback_google_maps_search",
-    "verification_status": "generated_fallback_not_biblical_map",
-    "qa_note": "Google fallback은 한국어 단독 검색 오탐을 막기 위해 영어명/성경지명/국가 힌트를 포함해 생성함."
-  },
+  
   {
     "place_id": "P101",
     "official_name": "아라랏산",
@@ -17658,31 +17613,7 @@
     "verification_status": "generated_fallback_not_biblical_map",
     "qa_note": "Google fallback은 한국어 단독 검색 오탐을 막기 위해 영어명/성경지명/국가 힌트를 포함해 생성함."
   },
-  {
-    "place_id": "P333",
-    "official_name": "엔게디",
-    "map_id": "GOOGLE-QA-REPAIR-P333",
-    "map_labels": [
-      "엔게디"
-    ],
-    "feature_types": [
-      "google_maps_fallback"
-    ],
-    "source": "google_maps_fallback_qa_repair_0630",
-    "link_type": "external_direct_map",
-    "map_type": "google_maps_fallback",
-    "map_title": "Google Maps 성경지명 검색: 엔게디",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=En%20Gedi%20biblical%20site%20Israel",
-    "primary_url": "https://www.google.com/maps/search/?api=1&query=En%20Gedi%20biblical%20site%20Israel",
-    "alternate_url": null,
-    "preferred_url_policy": "google_maps_fallback_when_qa_failed_or_missing",
-    "map_url_status": "google_fallback_generated",
-    "official_url": "https://www.google.com/maps/search/?api=1&query=En%20Gedi%20biblical%20site%20Israel",
-    "preferred_url": "https://www.google.com/maps/search/?api=1&query=En%20Gedi%20biblical%20site%20Israel",
-    "url_policy": "fallback_google_maps_search",
-    "verification_status": "generated_fallback_not_biblical_map",
-    "qa_note": "Google fallback은 한국어 단독 검색 오탐을 막기 위해 영어명/성경지명/국가 힌트를 포함해 생성함."
-  },
+  
   {
     "place_id": "P359",
     "official_name": "엘라 골짜기",
@@ -17958,31 +17889,7 @@
     "verification_status": "generated_fallback_not_biblical_map",
     "qa_note": "Google fallback은 한국어 단독 검색 오탐을 막기 위해 영어명/성경지명/국가 힌트를 포함해 생성함."
   },
-  {
-    "place_id": "P376",
-    "official_name": "기드론 골짜기",
-    "map_id": "GOOGLE-QA-REPAIR-P376",
-    "map_labels": [
-      "기드론 골짜기"
-    ],
-    "feature_types": [
-      "google_maps_fallback"
-    ],
-    "source": "google_maps_fallback_qa_repair_0630",
-    "link_type": "external_direct_map",
-    "map_type": "google_maps_fallback",
-    "map_title": "Google Maps 성경지명 검색: 기드론 골짜기",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=Kidron%20Valley%20biblical%20site%20Israel",
-    "primary_url": "https://www.google.com/maps/search/?api=1&query=Kidron%20Valley%20biblical%20site%20Israel",
-    "alternate_url": null,
-    "preferred_url_policy": "google_maps_fallback_when_qa_failed_or_missing",
-    "map_url_status": "google_fallback_generated",
-    "official_url": "https://www.google.com/maps/search/?api=1&query=Kidron%20Valley%20biblical%20site%20Israel",
-    "preferred_url": "https://www.google.com/maps/search/?api=1&query=Kidron%20Valley%20biblical%20site%20Israel",
-    "url_policy": "fallback_google_maps_search",
-    "verification_status": "generated_fallback_not_biblical_map",
-    "qa_note": "Google fallback은 한국어 단독 검색 오탐을 막기 위해 영어명/성경지명/국가 힌트를 포함해 생성함."
-  },
+ 
   {
     "place_id": "P377",
     "official_name": "힌놈의 골짜기",
@@ -17993,17 +17900,17 @@
     "feature_types": [
       "google_maps_fallback"
     ],
-    "source": "google_maps_fallback_qa_repair_0630",
+    "source": "external_user_provided",
     "link_type": "external_direct_map",
     "map_type": "google_maps_fallback",
     "map_title": "Google Maps 성경지명 검색: 힌놈의 골짜기",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=Valley%20of%20Hinnom%20biblical%20site%20Israel",
-    "primary_url": "https://www.google.com/maps/search/?api=1&query=Valley%20of%20Hinnom%20biblical%20site%20Israel",
+    "map_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
+    "primary_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
     "alternate_url": null,
     "preferred_url_policy": "google_maps_fallback_when_qa_failed_or_missing",
     "map_url_status": "google_fallback_generated",
-    "official_url": "https://www.google.com/maps/search/?api=1&query=Valley%20of%20Hinnom%20biblical%20site%20Israel",
-    "preferred_url": "https://www.google.com/maps/search/?api=1&query=Valley%20of%20Hinnom%20biblical%20site%20Israel",
+    "official_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
+    "preferred_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
     "url_policy": "fallback_google_maps_search",
     "verification_status": "generated_fallback_not_biblical_map",
     "qa_note": "Google fallback은 한국어 단독 검색 오탐을 막기 위해 영어명/성경지명/국가 힌트를 포함해 생성함."
@@ -18399,14 +18306,14 @@
       "기드론 골짜기"
     ],
     "feature_types": "valley",
-    "source": "user_260704",
+    "source": "external_user_provided",
     "link_type": "external_user_provided_map",
     "map_title": "기드론 골짜기",
-    "map_url": "https://blog.naver.com/immanu_el/220530940822?photoView=0",
-    "primary_url": "https://blog.naver.com/immanu_el/220530940822?photoView=0",
-    "alternate_url": "https://blog.naver.com/immanu_el/220530940822?photoView=0",
-    "official_url": "https://blog.naver.com/immanu_el/220530940822?photoView=0",
-    "preferred_url": "https://blog.naver.com/immanu_el/220530940822?photoView=0",
+    "map_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
+    "primary_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
+    "alternate_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
+    "official_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
+    "preferred_url": "https://t1.daumcdn.net/cafeattach/ZGxK/5e2fb943351d395fdf2c6aca7db0c9e628305894",
     "preferred_url_policy": "user_provided_url_must_be_representative",
     "map_url_status": "linked_user_verified",
     "url_policy": "always_use_user_provided_url_first",
@@ -19532,11 +19439,11 @@
     "source": "user_260704",
     "link_type": "external_user_provided_map",
     "map_title": "마가의 다락방",
-    "map_url": "https://blog.naver.com/jbjoo0537/222254755828?photoView=3",
-    "primary_url": "https://blog.naver.com/jbjoo0537/222254755828?photoView=3",
-    "alternate_url": "https://blog.naver.com/jbjoo0537/222254755828?photoView=3",
-    "official_url": "https://blog.naver.com/jbjoo0537/222254755828?photoView=3",
-    "preferred_url": "https://blog.naver.com/jbjoo0537/222254755828?photoView=3",
+    "map_url": "http://cfile238.uf.daum.net/image/2259993C57D74F1A24D759",
+    "primary_url": "http://cfile238.uf.daum.net/image/2259993C57D74F1A24D759",
+    "alternate_url": "http://cfile238.uf.daum.net/image/2259993C57D74F1A24D759",
+    "official_url": "http://cfile238.uf.daum.net/image/2259993C57D74F1A24D759",
+    "preferred_url": "http://cfile238.uf.daum.net/image/2259993C57D74F1A24D759",
     "preferred_url_policy": "user_provided_url_must_be_representative",
     "map_url_status": "linked_user_verified",
     "url_policy": "always_use_user_provided_url_first",
@@ -19902,11 +19809,11 @@
     "source": "user_260704",
     "link_type": "external_user_provided_map",
     "map_title": "바다라",
-    "map_url": "https://blog.naver.com/hne55/221978339023?photoView=0",
-    "primary_url": "https://blog.naver.com/hne55/221978339023?photoView=0",
-    "alternate_url": "https://blog.naver.com/hne55/221978339023?photoView=0",
-    "official_url": "https://blog.naver.com/hne55/221978339023?photoView=0",
-    "preferred_url": "https://blog.naver.com/hne55/221978339023?photoView=0",
+    "map_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
+    "primary_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
+    "alternate_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
+    "official_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
+    "preferred_url": "https://www.bskorea.or.kr/images/popup/n07.jpg",
     "preferred_url_policy": "user_provided_url_must_be_representative",
     "map_url_status": "linked_user_verified",
     "url_policy": "always_use_user_provided_url_first",
@@ -20158,34 +20065,7 @@
     "row_no": 110,
     "qa_note": "260704 user spreadsheet: representative URL override"
   },
-  {
-    "place_id": "P279",
-    "official_name": "뵈닉스",
-    "map_id": "USER-260704-P279-111",
-    "map_labels": [
-      "뵈닉스"
-    ],
-    "feature_types": [
-      "city"
-    ],
-    "source": "user_260704",
-    "link_type": "external_user_provided_map",
-    "map_title": "뵈닉스",
-    "map_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "primary_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "alternate_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "official_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "preferred_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "preferred_url_policy": "user_provided_url_must_be_representative",
-    "map_url_status": "linked_user_verified",
-    "url_policy": "always_use_user_provided_url_first",
-    "user_provided_url": true,
-    "representative": true,
-    "priority": 1000110,
-    "row_no": 111,
-    "qa_note": "260704 user spreadsheet: representative URL override"
-  },
-  {
+   {
     "place_id": "P018",
     "official_name": "브니엘",
     "map_id": "USER-260704-P018-112",
@@ -20655,14 +20535,14 @@
     "feature_types": [
       "city"
     ],
-    "source": "user_260704",
+    "source": "external_user_provided",
     "link_type": "external_user_provided_map",
     "map_title": "실루기아",
-    "map_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "primary_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "alternate_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "official_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "preferred_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
+    "map_url": "https://www.bskorea.or.kr/images/popup/n05.jpg",
+    "primary_url": "https://www.bskorea.or.kr/images/popup/n05.jpg",
+    "alternate_url": "https://www.bskorea.or.kr/images/popup/n05.jpg",
+    "official_url": "https://www.bskorea.or.kr/images/popup/n05.jpg",
+    "preferred_url": "https://www.bskorea.or.kr/images/popup/n05.jpg",
     "preferred_url_policy": "user_provided_url_must_be_representative",
     "map_url_status": "linked_user_verified",
     "url_policy": "always_use_user_provided_url_first",
@@ -20682,14 +20562,14 @@
     "feature_types": [
       "region"
     ],
-    "source": "user_260704",
+    "source": "external_user_provided",
     "link_type": "external_user_provided_map",
     "map_title": "아가야",
-    "map_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "primary_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "alternate_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "official_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "preferred_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
+    "map_url": "https://www.bskorea.or.kr/images/popup/n01.jpg",
+    "primary_url": "https://www.bskorea.or.kr/images/popup/n01.jpg",
+    "alternate_url": "https://www.bskorea.or.kr/images/popup/n01.jpg",
+    "official_url": "https://www.bskorea.or.kr/images/popup/n01.jpg",
+    "preferred_url": "https://www.bskorea.or.kr/images/popup/n01.jpg",
     "preferred_url_policy": "user_provided_url_must_be_representative",
     "map_url_status": "linked_user_verified",
     "url_policy": "always_use_user_provided_url_first",
@@ -21003,14 +20883,14 @@
     "feature_types": [
       "city"
     ],
-    "source": "user_260704",
+    "source": "external_user_provided_map",
     "link_type": "external_user_provided_map",
     "map_title": "엔게디",
-    "map_url": "https://blog.naver.com/asj21c/223140889336?photoView=0",
-    "primary_url": "https://blog.naver.com/asj21c/223140889336?photoView=0",
-    "alternate_url": "https://blog.naver.com/asj21c/223140889336?photoView=0",
-    "official_url": "https://blog.naver.com/asj21c/223140889336?photoView=0",
-    "preferred_url": "https://blog.naver.com/asj21c/223140889336?photoView=0",
+    "map_url": "https://m.blog.naver.com/choosingjoy/221237955268?view=img_1",
+    "primary_url": "https://m.blog.naver.com/choosingjoy/221237955268?view=img_1",
+    "alternate_url": "https://m.blog.naver.com/choosingjoy/221237955268?view=img_1",
+    "official_url": "https://m.blog.naver.com/choosingjoy/221237955268?view=img_1",
+    "preferred_url": "https://m.blog.naver.com/choosingjoy/221237955268?view=img_1",
     "preferred_url_policy": "user_provided_url_must_be_representative",
     "map_url_status": "linked_user_verified",
     "url_policy": "always_use_user_provided_url_first",
@@ -21330,14 +21210,14 @@
     "feature_types": [
       "city"
     ],
-    "source": "user_260704",
+    "source": "external_user_provided_map",
     "link_type": "external_user_provided_map",
     "map_title": "트레이스 타베르네",
-    "map_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "primary_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "alternate_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "official_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
-    "preferred_url": "https://blog.naver.com/idrealist_jeong/222140524208?photoView=0",
+    "map_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
+    "primary_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
+    "alternate_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
+    "official_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
+    "preferred_url": "https://www.bskorea.or.kr/images/popup/n08.jpg",
     "preferred_url_policy": "user_provided_url_must_be_representative",
     "map_url_status": "linked_user_verified",
     "url_policy": "always_use_user_provided_url_first",

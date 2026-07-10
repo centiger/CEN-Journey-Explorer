@@ -16,6 +16,7 @@
     currentJourneyMeta: null,
     currentJourney: null,
     stopIndex: 0,
+    transitionDirection: null,
     history: []
   };
 
@@ -213,9 +214,9 @@
   function bindTimeline() {
     main.querySelectorAll('[data-timeline-index]').forEach(button => {
       button.addEventListener('click', () => {
-        state.stopIndex = Number(button.dataset.timelineIndex);
-        renderStop();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const target = Number(button.dataset.timelineIndex);
+        const direction = target >= state.stopIndex ? 'next' : 'prev';
+        animateToStop(target, direction);
       });
     });
 
@@ -247,14 +248,85 @@
 
     routeList.querySelectorAll('[data-route-index]').forEach(button => {
       button.addEventListener('click', () => {
-        state.stopIndex = Number(button.dataset.routeIndex);
+        const target = Number(button.dataset.routeIndex);
+        const direction = target >= state.stopIndex ? 'next' : 'prev';
         routeDialog.close();
-        renderStop();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        animateToStop(target, direction);
       });
     });
 
     routeDialog.showModal();
+  }
+
+
+  function animateToStop(nextIndex, direction) {
+    const journey = state.currentJourney;
+    if (!journey) return;
+    if (nextIndex < 0 || nextIndex > journey.stops.length) return;
+
+    const card = main.querySelector('.stop-card');
+    if (!card) {
+      state.stopIndex = nextIndex;
+      state.transitionDirection = direction;
+      renderStop();
+      return;
+    }
+
+    card.classList.add(direction === 'next' ? 'page-out-left' : 'page-out-right');
+
+    setTimeout(() => {
+      state.stopIndex = nextIndex;
+      state.transitionDirection = direction;
+      renderStop();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 170);
+  }
+
+  function bindSwipeNavigation() {
+    const card = main.querySelector('.stop-card');
+    if (!card || !state.currentJourney) return;
+
+    let startX = 0;
+    let startY = 0;
+    let tracking = false;
+
+    card.addEventListener('touchstart', event => {
+      const touch = event.changedTouches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+      tracking = true;
+    }, { passive: true });
+
+    card.addEventListener('touchend', event => {
+      if (!tracking) return;
+      tracking = false;
+
+      const touch = event.changedTouches[0];
+      const dx = touch.clientX - startX;
+      const dy = touch.clientY - startY;
+
+      if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.25) return;
+
+      if (dx < 0) {
+        const next = state.stopIndex + 1;
+        if (next <= state.currentJourney.stops.length) animateToStop(next, 'next');
+      } else {
+        const prev = state.stopIndex - 1;
+        if (prev >= 0) animateToStop(prev, 'prev');
+      }
+    }, { passive: true });
+  }
+
+  function applyEntryAnimation() {
+    if (!state.transitionDirection) return;
+    const card = main.querySelector('.stop-card');
+    if (card) {
+      card.classList.add(state.transitionDirection === 'next' ? 'page-in-left' : 'page-in-right');
+      setTimeout(() => {
+        card.classList.remove('page-in-left', 'page-in-right');
+      }, 250);
+    }
+    state.transitionDirection = null;
   }
 
   function renderStop() {
@@ -313,24 +385,24 @@
       <div class="nav-actions">
         <button id="prevBtn" class="btn btn-ghost" type="button" ${state.stopIndex === 0 ? 'disabled' : ''}>← 이전 장소</button>
         <button id="nextBtn" class="btn btn-primary" type="button">${current === total ? '여정 완료' : '다음 장소 →'}</button>
+      </div>
+      <div class="swipe-hint">← 좌우로 밀어 장소 이동 →</div>
+      <div class="swipe-dots" aria-hidden="true">
+        ${journey.stops.map((_, i) => `<span class="swipe-dot ${i === state.stopIndex ? 'active' : ''}"></span>`).join('')}
       </div>`;
 
     document.getElementById('mapBtn').addEventListener('click', () => showMaps(resolved));
     document.getElementById('verseBtn').addEventListener('click', () => showVerse(stop));
     document.getElementById('prevBtn').addEventListener('click', () => {
-      if (state.stopIndex > 0) {
-        state.stopIndex -= 1;
-        renderStop();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      if (state.stopIndex > 0) animateToStop(state.stopIndex - 1, 'prev');
     });
     document.getElementById('nextBtn').addEventListener('click', () => {
-      state.stopIndex += 1;
-      renderStop();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      animateToStop(state.stopIndex + 1, 'next');
     });
 
     bindTimeline();
+    bindSwipeNavigation();
+    applyEntryAnimation();
   }
 
   const arr = value => Array.isArray(value) ? value : (value == null ? [] : [value]);

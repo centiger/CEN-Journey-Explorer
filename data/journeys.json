@@ -22,5 +22,13 @@
     "group": "OT",
     "file": "OT/J003-jacob-transformation-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J004",
+    "title": "요셉 섭리 여정",
+    "subtitle": "고난을 통해 하나님의 구원 계획이 이루어진 여정",
+    "group": "OT",
+    "file": "OT/J004-joseph-providence-journey.json",
+    "status": "release"
   }
 ]

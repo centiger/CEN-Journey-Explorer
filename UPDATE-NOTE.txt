@@ -1,9 +1,14 @@
-CEN Journey Explorer v1.3
+CEN Journey Explorer J003 업데이트
 
-- 현재 CEN BibleMaps PWA의 places-master.json과 place-map-links-master.json으로 교체
-- BibleMaps의 trustedVisibleLinksForPlace 판정 방식을 Journey 엔진에 이식
-- map_labels에 실제 지명이 확인된 direct/external 지도만 인정
-- 구체 지도 우선, 범용 지도 후순위
-- Journey에서는 최우선 지도 1개만 즉시 열기
-- 확인된 지도가 없으면 임의의 지도를 열지 않음
-- J001의 수동 mapId 지정 제거
+업로드/덮어쓰기 파일
+1. journeys/OT/J002-isaac-endurance-journey.json
+2. journeys/OT/J003-jacob-transformation-journey.json
+3. data/journeys.json
+4. service-worker.js
+
+중요 수정
+- 테스트용 J000 항목 제거
+- 아브라함이 1번으로 표시
+- J002 그랄 Place ID를 잘못된 P016에서 올바른 P220으로 수정
+- J003 야곱 변화 여정 추가
+- 지도 없는 세부 장소는 대표 장소의 괄호 표기로 처리

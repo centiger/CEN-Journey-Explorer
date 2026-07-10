@@ -23,3 +23,16 @@
 ## 중요
 브라우저 보안 정책 때문에 index.html을 파일로 직접 열면 JSON 로딩이 실패할 수 있습니다.
 GitHub Pages 또는 로컬 웹서버에서 실행하세요.
+
+
+## v1.1 성경읽기 연결
+Journey의 `말씀 보기`는 다음 주소 형식으로 CEN Bible 2.0을 엽니다.
+
+`https://centiger.github.io/CEN-Bible2.0/?ref=창세기%2012:1~4&source=journey`
+
+정확한 장·절로 자동 이동하려면 CEN-Bible2.0 저장소에도 `journey-deeplink.js`를 업로드하고,
+`index.html`의 `</body>` 직전에 다음 한 줄을 추가해야 합니다.
+
+```html
+<script src="./journey-deeplink.js"></script>
+```

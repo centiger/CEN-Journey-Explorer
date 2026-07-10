@@ -1,4 +1,4 @@
-const CACHE = 'cen-journey-engine-v1.0.0';
+const CACHE = 'cen-journey-engine-v1.1.0';
 const CORE = [
   './',
   './index.html',

@@ -14,5 +14,13 @@
     "group": "OT",
     "file": "OT/J002-isaac-endurance-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J003",
+    "title": "야곱 변화 여정",
+    "subtitle": "도피자 야곱이 이스라엘로 변화되는 여정",
+    "group": "OT",
+    "file": "OT/J003-jacob-transformation-journey.json",
+    "status": "release"
   }
 ]

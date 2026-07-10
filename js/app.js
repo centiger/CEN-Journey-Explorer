@@ -227,7 +227,7 @@
         <button id="nextBtn" class="btn btn-primary" type="button">${current === total ? '여정 완료' : '다음 장소 →'}</button>
       </div>`;
 
-    document.getElementById('mapBtn').addEventListener('click', () => showMaps(resolved, stop));
+    document.getElementById('mapBtn').addEventListener('click', () => showMaps(resolved));
     document.getElementById('verseBtn').addEventListener('click', () => showVerse(stop));
     document.getElementById('prevBtn').addEventListener('click', () => {
       if (state.stopIndex > 0) {
@@ -243,79 +243,122 @@
     });
   }
 
-  function preferredUrl(link) {
-    return link.preferred_url || link.official_url || link.primary_url || link.map_url || link.alternate_url || '';
-  }
-
-  function uniqueMaps(placeId) {
-    const links = state.linksByPlace.get(placeId) || [];
+  const arr = value => Array.isArray(value) ? value : (value == null ? [] : [value]);
+  const norm = value => safeText(value).toLowerCase().replace(/\s+/g, '').trim();
+  const uniqByMap = links => {
     const seen = new Set();
     return links.filter(link => {
-      const url = preferredUrl(link);
-      const key = `${link.map_id}|${url}`;
-      if (!url || seen.has(key)) return false;
+      const key = `${safeText(link.map_id)}|${linkUrl(link)}`;
+      if (!linkUrl(link) || seen.has(key)) return false;
       seen.add(key);
       return true;
-    }).sort((a, b) => safeText(a.map_id).localeCompare(safeText(b.map_id)));
+    });
+  };
+
+  function linkUrl(link) {
+    return link?.preferred_url || link?.map_url || link?.alternate_url ||
+      link?.primary_url || link?.official_url || '';
   }
 
-  function chooseSingleMap(resolved, stop) {
-    const linked = uniqueMaps(resolved.id);
+  function isGoogleUrl(url) {
+    return /(^https?:\/\/)?(www\.)?google\.[^/]+\/maps|google\.com\/maps/i.test(String(url || ''));
+  }
 
-    // 여정 JSON에 mapId를 지정하면 그 지도만 사용합니다.
-    if (stop?.mapId) {
-      const exact = linked.find(link => link.map_id === stop.mapId);
-      if (exact) return {
-        title: exact.map_title || exact.map_id,
-        url: preferredUrl(exact),
-        id: exact.map_id
-      };
+  function directLinks(links) {
+    return arr(links).filter(link => {
+      const url = linkUrl(link);
+      return [
+        'direct_visible_on_bsk_map',
+        'external_user_provided_map',
+        'external_direct_map',
+        'external_representative_map'
+      ].includes(String(link.link_type || '')) && url && !isGoogleUrl(url);
+    });
+  }
 
-      const placeMap = (resolved.place?.bsk_map_urls || [])
-        .find(map => map.map_id === stop.mapId);
-      if (placeMap) return {
-        title: placeMap.map_title || placeMap.map_id,
-        url: placeMap.primary_url || placeMap.url || placeMap.alternate_url,
-        id: placeMap.map_id
-      };
+  function linkPriority(link, resolved) {
+    const place = resolved.place || {};
+    const name = norm(resolved.name || place.official_name || place.canonical_name);
+    const labels = arr(link.map_labels).map(norm);
+    const title = norm(link.map_title);
+    let score = 0;
+
+    if (
+      link?.user_provided_url === true ||
+      String(link?.source || '') === 'user_260704' ||
+      link?.representative === true
+    ) score += 100000 + Number(link?.priority || 0);
+
+    if (labels.some(label => label === name)) score += 1000;
+    else if (labels.some(label => label.includes(name) || name.includes(label))) score += 600;
+
+    if (link.alternate_url || String(link.preferred_url || '').includes('cms.ibep-prod.com')) score += 180;
+    if (title.includes(name)) score += 120;
+
+    if (/바울|여행|선교|예수|예루살렘|엘리야|엘리사|여호수아|전투/.test(String(link.map_title || ''))) score += 90;
+    if (/세계|경계|지파|왕국|제국|시대|팔레스타인/.test(String(link.map_title || ''))) score -= 70;
+
+    return score;
+  }
+
+  function trustedVisibleLinksForPlace(resolved) {
+    const place = resolved.place || {};
+    const all = directLinks(state.linksByPlace.get(resolved.id) || [])
+      .sort((a, b) =>
+        linkPriority(b, resolved) - linkPriority(a, resolved) ||
+        safeText(a.map_id).localeCompare(safeText(b.map_id), 'ko')
+      );
+
+    const name = norm(resolved.name || place.official_name || place.canonical_name);
+    const aliasKeys = [
+      name,
+      ...arr(place.aliases).map(norm),
+      ...arr(place.search_keywords).map(norm)
+    ].filter(Boolean);
+
+    const userProvided = all.filter(link =>
+      link?.user_provided_url === true ||
+      String(link?.source || '').includes('user') ||
+      String(link?.link_type || '').startsWith('external') ||
+      String(link?.url_policy || '').includes('always_use_user_provided') ||
+      link?.representative === true
+    );
+
+    let visible = all.filter(link => {
+      const labels = arr(link.map_labels).map(norm).filter(Boolean);
+      return labels.some(label => aliasKeys.some(key => label === key || label.includes(key)));
+    });
+
+    visible = uniqByMap([...userProvided, ...visible]);
+
+    // CEN BibleMaps의 현재 운영 원칙:
+    // 실제 표기가 확인된 링크가 하나도 없으면 임의의 범용지도를 보여주지 않습니다.
+    const genericTitle = link =>
+      /세계|경계|지파|왕국|제국|시대|팔레스타인/.test(String(link.map_title || ''));
+
+    const specific = visible.filter(link => !genericTitle(link));
+    if (specific.length) visible = specific;
+
+    return visible;
+  }
+
+  function showMaps(resolved) {
+    // BibleMaps 검색 결과와 동일한 판정 로직을 사용하고,
+    // Journey에서는 가장 우선순위가 높은 지도 1개만 엽니다.
+    const link = trustedVisibleLinksForPlace(resolved)[0];
+
+    if (!link) {
+      mapDialogTitle.textContent = resolved.name;
+      mapOptions.innerHTML = `
+        <div class="empty">
+          해당 지명이 실제 표기된 지도를 찾지 못했습니다.<br>
+          표기 확인이 안 된 지도는 표시하지 않습니다.
+        </div>`;
+      mapDialog.showModal();
+      return;
     }
 
-    // 지정이 없으면 실제 연결된 지도 가운데 첫 번째 지도 하나만 사용합니다.
-    // 여러 지도를 한꺼번에 노출하지 않습니다.
-    const first = linked[0];
-    if (first) return {
-      title: first.map_title || first.map_id,
-      url: preferredUrl(first),
-      id: first.map_id
-    };
-
-    const fallback = (resolved.place?.bsk_map_urls || [])[0];
-    if (fallback) return {
-      title: fallback.map_title || fallback.map_id,
-      url: fallback.primary_url || fallback.url || fallback.alternate_url,
-      id: fallback.map_id
-    };
-
-    const external = (resolved.place?.external_map_refs || [])
-      .find(item => item.url);
-    if (external) return {
-      title: external.name || '대표 지도',
-      url: external.url,
-      id: 'EXT'
-    };
-
-    return null;
-  }
-
-  function showMaps(resolved, stop) {
-    const map = chooseSingleMap(resolved, stop);
-    mapDialogTitle.textContent = resolved.name;
-
-    mapOptions.innerHTML = map
-      ? mapAnchor(map.title, map.url, map.id)
-      : `<div class="empty">이 장소에 연결된 지도가 없습니다.</div>`;
-
-    mapDialog.showModal();
+    window.open(linkUrl(link), '_blank', 'noopener,noreferrer');
   }
 
   function mapAnchor(title, url, id) {

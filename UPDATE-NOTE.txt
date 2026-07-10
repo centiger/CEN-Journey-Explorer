@@ -1,14 +1,14 @@
-CEN Journey Explorer J003 업데이트
+CEN Journey Explorer Timeline UI v1.4
 
-업로드/덮어쓰기 파일
-1. journeys/OT/J002-isaac-endurance-journey.json
-2. journeys/OT/J003-jacob-transformation-journey.json
-3. data/journeys.json
-4. service-worker.js
+적용 내용
+- 상단 진행률 바를 여정 타임라인으로 교체
+- 완료 장소 / 현재 장소 / 예정 장소 구분
+- 장소명을 화살표로 연결하여 동선 누적 표시
+- 타임라인 장소 클릭 시 해당 장소로 바로 이동
+- 현재 위치가 자동으로 화면 중앙 근처에 오도록 스크롤
+- 전체 경로 보기 팝업 추가
+- 전체 경로 목록에서도 원하는 장소로 바로 이동
+- J001~J003 여정 핵심 한 줄 요약 추가
 
-중요 수정
-- 테스트용 J000 항목 제거
-- 아브라함이 1번으로 표시
-- J002 그랄 Place ID를 잘못된 P016에서 올바른 P220으로 수정
-- J003 야곱 변화 여정 추가
-- 지도 없는 세부 장소는 대표 장소의 괄호 표기로 처리
+업로드
+압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

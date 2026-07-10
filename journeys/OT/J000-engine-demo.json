@@ -1,0 +1,27 @@
+{
+  "id": "J000",
+  "slug": "engine-demo",
+  "title": "엔진 점검용 샘플",
+  "group": "OT",
+  "status": "test",
+  "stops": [
+    {
+      "order": 1,
+      "placeId": "P198",
+      "summary": "Journey JSON이 장소 ID를 통해 장소명과 연결 지도를 불러오는지 확인하는 점검 단계입니다.",
+      "verse": "창세기 11:31"
+    },
+    {
+      "order": 2,
+      "placeId": "P012",
+      "summary": "이전·다음 이동과 여러 지도 선택 창이 정상적으로 작동하는지 확인합니다.",
+      "verse": "창세기 11:31~32"
+    },
+    {
+      "order": 3,
+      "placeId": "P080",
+      "summary": "마지막 장소 이후 여정 완료 화면으로 연결되는지 확인합니다.",
+      "verse": "창세기 12:6~7"
+    }
+  ]
+}

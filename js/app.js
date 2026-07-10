@@ -538,7 +538,10 @@
     }
 
     const base = 'https://centiger.github.io/CEN-Bible2.0/';
-    const url = stop.bibleUrl || `${base}?ref=${encodeURIComponent(ref)}&source=journey`;
+    const returnTo = location.href;
+    const url = stop.bibleUrl ||
+      `${base}?ref=${encodeURIComponent(ref)}&source=journey&returnTo=${encodeURIComponent(returnTo)}`;
+
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 

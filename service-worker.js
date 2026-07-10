@@ -1,4 +1,4 @@
-const CACHE = 'cen-journey-engine-v1.1.0';
+const CACHE = 'cen-journey-engine-v1.2.0';
 const CORE = [
   './',
   './index.html',
@@ -9,6 +9,7 @@ const CORE = [
   './data/places-master.json',
   './data/place-map-links-master.json',
   './journeys/OT/J000-engine-demo.json',
+  './journeys/OT/J001-abraham-journey.json',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-512-maskable.png'

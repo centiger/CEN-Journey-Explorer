@@ -391,3 +391,44 @@ body{display:flex;justify-content:center}
     min-height:52px;
   }
 }
+
+
+/* v1.7 full-route modal layering fix */
+.route-dialog{
+  overflow:hidden;
+}
+.route-dialog .dialog-head{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--surface);
+  box-shadow:0 1px 0 var(--line);
+}
+.route-dialog .route-list{
+  position:relative;
+  z-index:1;
+  max-height:calc(78dvh - 102px);
+  overflow-y:auto;
+  padding-top:26px;
+  padding-bottom:30px;
+}
+.route-dialog .route-list::before{
+  z-index:0;
+  left:35px;
+  top:43px;
+  bottom:43px;
+}
+.route-dialog .route-item{
+  position:relative;
+  z-index:1;
+}
+.route-dialog .route-index{
+  position:relative;
+  z-index:3;
+  box-shadow:0 0 0 5px var(--surface);
+}
+.route-dialog .route-body{
+  position:relative;
+  z-index:2;
+  background:var(--surface);
+}

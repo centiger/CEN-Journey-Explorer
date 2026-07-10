@@ -27,6 +27,9 @@
   const mapDialogTitle = document.getElementById('mapDialogTitle');
   const mapOptions = document.getElementById('mapOptions');
   const guideDialog = document.getElementById('guideDialog');
+  const routeDialog = document.getElementById('routeDialog');
+  const routeDialogTitle = document.getElementById('routeDialogTitle');
+  const routeList = document.getElementById('routeList');
   const installBtn = document.getElementById('installBtn');
   let deferredInstallPrompt = null;
 
@@ -178,6 +181,82 @@
     };
   }
 
+
+  function stopPlaceName(stop) {
+    return resolvePlace(stop).name;
+  }
+
+  function journeySummary(journey) {
+    return safeText(
+      journey.summary ||
+      state.currentJourneyMeta?.summary ||
+      state.currentJourneyMeta?.subtitle ||
+      ''
+    );
+  }
+
+  function timelineHtml(journey) {
+    return journey.stops.map((stop, index) => {
+      const status = index < state.stopIndex ? 'done' : index === state.stopIndex ? 'current' : 'upcoming';
+      const arrow = index < journey.stops.length - 1 ? '<span class="timeline-arrow">→</span>' : '';
+      return `
+        <div class="timeline-stop ${status}">
+          <button class="timeline-node" type="button" data-timeline-index="${index}" aria-label="${stopPlaceName(stop)}로 이동">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="name">${safeText(stopPlaceName(stop))}</span>
+          </button>
+          ${arrow}
+        </div>`;
+    }).join('');
+  }
+
+  function bindTimeline() {
+    main.querySelectorAll('[data-timeline-index]').forEach(button => {
+      button.addEventListener('click', () => {
+        state.stopIndex = Number(button.dataset.timelineIndex);
+        renderStop();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    const routeButton = document.getElementById('routeBtn');
+    if (routeButton) routeButton.addEventListener('click', showRoute);
+
+    requestAnimationFrame(() => {
+      const current = main.querySelector('.timeline-stop.current .timeline-node');
+      if (current) current.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+  }
+
+  function showRoute() {
+    const journey = state.currentJourney;
+    if (!journey) return;
+
+    routeDialogTitle.textContent = journey.title || state.currentJourneyMeta?.title || '여정 경로';
+    routeList.innerHTML = journey.stops.map((stop, index) => {
+      const status = index < state.stopIndex ? 'done' : index === state.stopIndex ? 'current' : 'upcoming';
+      return `
+        <div class="route-item ${status}">
+          <div class="route-index">${index + 1}</div>
+          <div class="route-body">
+            <button type="button" data-route-index="${index}">${safeText(stopPlaceName(stop))}</button>
+            ${stop.label ? `<small>${safeText(stop.label)}</small>` : ''}
+          </div>
+        </div>`;
+    }).join('');
+
+    routeList.querySelectorAll('[data-route-index]').forEach(button => {
+      button.addEventListener('click', () => {
+        state.stopIndex = Number(button.dataset.routeIndex);
+        routeDialog.close();
+        renderStop();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    routeDialog.showModal();
+  }
+
   function renderStop() {
     const journey = state.currentJourney;
     if (!journey) return renderHome(false);
@@ -194,9 +273,18 @@
     main.innerHTML = `
       <div class="viewer-head">
         <h1>${safeText(journey.title || state.currentJourneyMeta?.title)}</h1>
-        <small>${current} / ${total}</small>
-        <div class="progress"><span style="width:${percent}%"></span></div>
+        ${journeySummary(journey) ? `<p class="journey-summary">${journeySummary(journey)}</p>` : ''}
       </div>
+
+      <section class="timeline-wrap" aria-label="여정 진행 현황">
+        <div class="timeline-head">
+          <strong>여정 진행 현황 <span class="current-mark">${current} / ${total}</span></strong>
+          <button id="routeBtn" class="route-btn" type="button">전체 경로 보기</button>
+        </div>
+        <div class="timeline-scroll">
+          <div class="timeline-track">${timelineHtml(journey)}</div>
+        </div>
+      </section>
 
       <article class="stop-card">
         <div class="stop-kicker">
@@ -241,6 +329,8 @@
       renderStop();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    bindTimeline();
   }
 
   const arr = value => Array.isArray(value) ? value : (value == null ? [] : [value]);
@@ -418,6 +508,7 @@
   homeBtn.addEventListener('click', () => renderHome(false));
   document.getElementById('closeMapDialog').addEventListener('click', () => mapDialog.close());
   document.getElementById('closeGuideDialog').addEventListener('click', () => guideDialog.close());
+  document.getElementById('closeRouteDialog').addEventListener('click', () => routeDialog.close());
 
   window.addEventListener('popstate', () => goBack());
 

@@ -227,7 +227,7 @@
         <button id="nextBtn" class="btn btn-primary" type="button">${current === total ? '여정 완료' : '다음 장소 →'}</button>
       </div>`;
 
-    document.getElementById('mapBtn').addEventListener('click', () => showMaps(resolved));
+    document.getElementById('mapBtn').addEventListener('click', () => showMaps(resolved, stop));
     document.getElementById('verseBtn').addEventListener('click', () => showVerse(stop));
     document.getElementById('prevBtn').addEventListener('click', () => {
       if (state.stopIndex > 0) {
@@ -259,20 +259,62 @@
     }).sort((a, b) => safeText(a.map_id).localeCompare(safeText(b.map_id)));
   }
 
-  function showMaps(resolved) {
-    const maps = uniqueMaps(resolved.id);
+  function chooseSingleMap(resolved, stop) {
+    const linked = uniqueMaps(resolved.id);
+
+    // 여정 JSON에 mapId를 지정하면 그 지도만 사용합니다.
+    if (stop?.mapId) {
+      const exact = linked.find(link => link.map_id === stop.mapId);
+      if (exact) return {
+        title: exact.map_title || exact.map_id,
+        url: preferredUrl(exact),
+        id: exact.map_id
+      };
+
+      const placeMap = (resolved.place?.bsk_map_urls || [])
+        .find(map => map.map_id === stop.mapId);
+      if (placeMap) return {
+        title: placeMap.map_title || placeMap.map_id,
+        url: placeMap.primary_url || placeMap.url || placeMap.alternate_url,
+        id: placeMap.map_id
+      };
+    }
+
+    // 지정이 없으면 실제 연결된 지도 가운데 첫 번째 지도 하나만 사용합니다.
+    // 여러 지도를 한꺼번에 노출하지 않습니다.
+    const first = linked[0];
+    if (first) return {
+      title: first.map_title || first.map_id,
+      url: preferredUrl(first),
+      id: first.map_id
+    };
+
+    const fallback = (resolved.place?.bsk_map_urls || [])[0];
+    if (fallback) return {
+      title: fallback.map_title || fallback.map_id,
+      url: fallback.primary_url || fallback.url || fallback.alternate_url,
+      id: fallback.map_id
+    };
+
+    const external = (resolved.place?.external_map_refs || [])
+      .find(item => item.url);
+    if (external) return {
+      title: external.name || '대표 지도',
+      url: external.url,
+      id: 'EXT'
+    };
+
+    return null;
+  }
+
+  function showMaps(resolved, stop) {
+    const map = chooseSingleMap(resolved, stop);
     mapDialogTitle.textContent = resolved.name;
 
-    if (!maps.length) {
-      const fallbackMaps = resolved.place?.bsk_map_urls || [];
-      mapOptions.innerHTML = fallbackMaps.length
-        ? fallbackMaps.map(m => mapAnchor(m.map_title, m.primary_url || m.url || m.alternate_url, m.map_id)).join('')
-        : `<div class="empty">이 장소에 연결된 지도가 없습니다.</div>`;
-    } else {
-      mapOptions.innerHTML = maps.map(m =>
-        mapAnchor(m.map_title || m.map_id, preferredUrl(m), m.map_id)
-      ).join('');
-    }
+    mapOptions.innerHTML = map
+      ? mapAnchor(map.title, map.url, map.id)
+      : `<div class="empty">이 장소에 연결된 지도가 없습니다.</div>`;
+
     mapDialog.showModal();
   }
 
@@ -284,11 +326,15 @@
   }
 
   function showVerse(stop) {
-    if (stop.bibleUrl) {
-      window.open(stop.bibleUrl, '_blank', 'noopener,noreferrer');
+    const ref = safeText(stop.bibleRef || stop.verse, '').trim();
+    if (!ref) {
+      alert('연결할 대표 성경구절이 없습니다.');
       return;
     }
-    alert(`${safeText(stop.verse, '대표 성경구절')}\n\n성경읽기 연결 URL은 각 여정 JSON의 bibleUrl 필드에 추가할 수 있습니다.`);
+
+    const base = 'https://centiger.github.io/CEN-Bible2.0/';
+    const url = stop.bibleUrl || `${base}?ref=${encodeURIComponent(ref)}&source=journey`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 
   function renderComplete() {

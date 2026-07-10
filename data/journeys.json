@@ -1,10 +1,18 @@
 [
   {
-  "id": "J001",
-  "title": "아브라함 믿음 여정",
-  "subtitle": "우르에서 모리아산과 헤브론까지",
-  "group": "OT",
-  "file": "OT/J001-abraham-journey.json",
-  "status": "release"
-}
+    "id": "J000",
+    "title": "엔진 점검용 샘플",
+    "subtitle": "지도·사건·말씀·이전/다음 기능 확인",
+    "group": "OT",
+    "file": "OT/J000-engine-demo.json",
+    "status": "test"
+  },
+  {
+    "id": "J001",
+    "title": "아브라함 믿음 여정",
+    "subtitle": "우르에서 모리아산과 헤브론까지",
+    "group": "OT",
+    "file": "OT/J001-abraham-journey.json",
+    "status": "release"
+  }
 ]

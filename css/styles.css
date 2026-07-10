@@ -249,3 +249,72 @@ body{display:flex;justify-content:center}
   margin-top:4px;
   line-height:1.4;
 }
+
+
+/* v1.5 route UI refinements */
+.timeline-node{
+  min-height:74px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:8px 7px 9px;
+}
+.timeline-stop.current .timeline-node{
+  background:var(--surface-2);
+  border-radius:16px;
+  box-shadow:inset 0 0 0 1px rgba(111,78,55,.08);
+}
+.timeline-stop.current .dot{
+  margin-bottom:7px;
+}
+.timeline-stop.current .name{
+  color:var(--accent);
+}
+
+.route-list{
+  position:relative;
+  padding:20px 18px 24px;
+}
+.route-list::before{
+  content:"";
+  position:absolute;
+  top:35px;
+  bottom:35px;
+  left:33px;
+  width:2px;
+  background:var(--line);
+  z-index:0;
+}
+.route-item{
+  position:relative;
+  z-index:1;
+  grid-template-columns:34px 1fr;
+  gap:14px;
+  align-items:center;
+  min-height:58px;
+}
+.route-index{
+  position:relative;
+  z-index:2;
+  width:34px;
+  height:34px;
+  margin:0;
+}
+.route-body{
+  position:relative;
+  z-index:1;
+  border-left:0!important;
+  margin-left:0!important;
+  padding:8px 0!important;
+}
+.route-item:last-child .route-body{
+  border-left:0!important;
+}
+.route-body button{
+  font-size:1rem;
+  line-height:1.35;
+}
+.route-body small{
+  margin-top:3px;
+}

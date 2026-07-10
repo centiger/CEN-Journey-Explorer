@@ -318,3 +318,76 @@ body{display:flex;justify-content:center}
 .route-body small{
   margin-top:3px;
 }
+
+
+/* v1.6 swipe + sticky navigation */
+.stop-card{
+  position:relative;
+  touch-action:pan-y;
+  will-change:transform, opacity;
+}
+.stop-card.page-out-left{
+  animation:pageOutLeft .18s ease forwards;
+}
+.stop-card.page-out-right{
+  animation:pageOutRight .18s ease forwards;
+}
+.stop-card.page-in-left{
+  animation:pageInLeft .22s ease both;
+}
+.stop-card.page-in-right{
+  animation:pageInRight .22s ease both;
+}
+@keyframes pageOutLeft{
+  to{transform:translateX(-22px) rotateY(-2deg);opacity:.15}
+}
+@keyframes pageOutRight{
+  to{transform:translateX(22px) rotateY(2deg);opacity:.15}
+}
+@keyframes pageInLeft{
+  from{transform:translateX(24px) rotateY(2deg);opacity:.15}
+  to{transform:none;opacity:1}
+}
+@keyframes pageInRight{
+  from{transform:translateX(-24px) rotateY(-2deg);opacity:.15}
+  to{transform:none;opacity:1}
+}
+.nav-actions{
+  position:sticky;
+  bottom:calc(8px + env(safe-area-inset-bottom));
+  z-index:20;
+  padding:8px;
+  margin-top:12px;
+  border:1px solid rgba(223,210,195,.95);
+  border-radius:18px;
+  background:rgba(247,241,232,.96);
+  backdrop-filter:blur(12px);
+  box-shadow:0 12px 28px rgba(64,42,28,.16);
+}
+.swipe-hint{
+  margin:8px 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:.74rem;
+}
+.swipe-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:7px;
+}
+.swipe-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--line);
+}
+.swipe-dot.active{background:var(--accent)}
+@media(max-width:460px){
+  .nav-actions{
+    grid-template-columns:1fr 1fr;
+  }
+  .nav-actions .btn{
+    min-height:52px;
+  }
+}

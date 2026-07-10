@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#6f4e37">
+  <meta name="description" content="성경의 중요한 여정들을 지도와 함께 탐험해 보세요.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>CEN Journey Explorer</title>
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <button id="backBtn" class="icon-btn hidden" type="button" aria-label="뒤로가기">←</button>
+      <div class="brand">
+        <strong>CEN Journey Explorer</strong>
+        <span id="headerSubtitle">성경을 따라 걷는 탐험</span>
+      </div>
+      <button id="homeBtn" class="icon-btn hidden" type="button" aria-label="홈으로">⌂</button>
+    </header>
+
+    <main id="main" class="main" aria-live="polite"></main>
+
+    <footer class="footer">
+      <span>CEN Bible Project</span>
+      <button id="installBtn" class="text-btn hidden" type="button">앱 설치</button>
+    </footer>
+  </div>
+
+  <dialog id="mapDialog" class="dialog">
+    <div class="dialog-head">
+      <div>
+        <small>지도 선택</small>
+        <h2 id="mapDialogTitle">장소 지도</h2>
+      </div>
+      <button id="closeMapDialog" class="icon-btn" type="button" aria-label="닫기">✕</button>
+    </div>
+    <div id="mapOptions" class="map-options"></div>
+  </dialog>
+
+  <dialog id="guideDialog" class="dialog">
+    <div class="dialog-head">
+      <div>
+        <small>사용안내</small>
+        <h2>성경여정 탐험 방법</h2>
+      </div>
+      <button id="closeGuideDialog" class="icon-btn" type="button" aria-label="닫기">✕</button>
+    </div>
+    <div class="guide-copy">
+      <p>구약 또는 신약을 선택한 뒤 원하는 여정을 여십시오.</p>
+      <p>각 장소에서 사건 요약과 대표 성경구절을 보고, 지도 보기를 눌러 해당 장소가 표시된 지도를 확인합니다.</p>
+      <p>이전·다음 버튼으로 여정의 순서를 따라갑니다.</p>
+    </div>
+  </dialog>
+
+  <script src="./js/app.js" defer></script>
+</body>
+</html>

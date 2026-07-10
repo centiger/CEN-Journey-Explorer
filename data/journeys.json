@@ -14,5 +14,13 @@
     "group": "OT",
     "file": "OT/J001-abraham-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J002",
+    "title": "이삭 인내 여정",
+    "subtitle": "브엘세바와 그랄을 중심으로 한 언약의 여정",
+    "group": "OT",
+    "file": "OT/J002-isaac-endurance-journey.json",
+    "status": "release"
   }
 ]

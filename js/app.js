@@ -166,11 +166,86 @@
       state.currentJourneyMeta = meta;
       state.currentJourney = journey;
       state.stopIndex = 0;
-      state.screen = 'viewer';
-      renderStop();
+      state.screen = 'intro';
+      renderJourneyIntro();
     } catch (error) {
       renderError(error);
     }
+  }
+
+  function journeyOverviewNames(journey) {
+    if (Array.isArray(journey.overview) && journey.overview.length) return journey.overview;
+    const names = [];
+    for (const stop of journey.stops || []) {
+      const name = stopPlaceName(stop);
+      if (!names.length || names[names.length - 1] !== name) names.push(name);
+    }
+    return names;
+  }
+
+  function renderJourneyIntro() {
+    const journey = state.currentJourney;
+    if (!journey) return renderHome(false);
+    state.screen = 'intro';
+    setHeader('여정 이해하기', true, true);
+
+    const overview = journeyOverviewNames(journey);
+    const memory = journey.memoryVerse || {};
+    const placeCount = journey.placeCount ||
+      new Set((journey.stops || []).map(stop => stop.placeId).filter(Boolean)).size;
+
+    main.innerHTML = `
+      <section class="journey-intro">
+        <div class="intro-title">
+          <span class="intro-eyebrow">CEN JOURNEY</span>
+          <h1>${safeText(journey.title || state.currentJourneyMeta?.title)}</h1>
+          ${journeySummary(journey) ? `<p>${journeySummary(journey)}</p>` : ''}
+        </div>
+
+        <section class="journey-facts" aria-label="여정 정보">
+          <div><span>🏛 시대</span><strong>${safeText(journey.era, '시대 정보 준비 중')}</strong></div>
+          <div><span>📍 장소</span><strong>${placeCount}곳</strong></div>
+          <div><span>🗓 기간</span><strong>${safeText(journey.period, '기간 정보 준비 중')}</strong></div>
+          <div><span>🚶 이동거리</span><strong>${safeText(journey.distance, '거리 정보 준비 중')}</strong></div>
+        </section>
+
+        <section class="intro-panel importance-panel">
+          <h2>💡 왜 중요한가?</h2>
+          <p>${safeText(journey.importance, journeySummary(journey))}</p>
+        </section>
+
+        <section class="intro-panel">
+          <h2>🗺 한눈에 보는 여정</h2>
+          <div class="overview-route">
+            ${overview.map((name, i) => `
+              <span class="overview-place">${safeText(name)}</span>
+              ${i < overview.length - 1 ? '<span class="overview-arrow">↓</span>' : ''}
+            `).join('')}
+          </div>
+        </section>
+
+        <section class="intro-panel memory-panel">
+          <h2>📖 대표 성구</h2>
+          ${memory.text ? `<blockquote>“${safeText(memory.text)}”</blockquote>` : ''}
+          <strong>${safeText(memory.ref, '')}</strong>
+        </section>
+
+        <section class="intro-panel takeaway-panel">
+          <h2>⭐ 한 줄 핵심</h2>
+          <p>${safeText(journey.takeaway, journeySummary(journey))}</p>
+        </section>
+
+        ${journey.estimateNote ? `<p class="estimate-note">※ ${safeText(journey.estimateNote)}</p>` : ''}
+
+        <button id="startJourneyBtn" class="btn btn-primary intro-start" type="button">여정 탐험 시작 →</button>
+      </section>`;
+
+    document.getElementById('startJourneyBtn').addEventListener('click', () => {
+      state.stopIndex = 0;
+      state.screen = 'viewer';
+      renderStop();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   function resolvePlace(stop) {
@@ -569,6 +644,10 @@
 
   function goBack() {
     if (state.screen === 'viewer' || state.screen === 'complete') {
+      renderJourneyIntro();
+      return;
+    }
+    if (state.screen === 'intro') {
       renderJourneyList(state.currentJourneyMeta?.group || state.group || 'ALL', false);
       return;
     }

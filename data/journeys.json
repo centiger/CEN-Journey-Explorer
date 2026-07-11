@@ -142,5 +142,13 @@
     "group": "OT",
     "file": "OT/J018-zerubbabel-return-temple-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J019",
+    "title": "에스라 귀환과 말씀 개혁 여정",
+    "subtitle": "바벨론 귀환에서 율법 낭독과 공동체 개혁까지",
+    "group": "OT",
+    "file": "OT/J019-ezra-return-reform-journey.json",
+    "status": "release"
   }
 ]

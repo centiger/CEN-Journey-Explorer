@@ -62,5 +62,13 @@
     "group": "OT",
     "file": "OT/J008-judges-cycle-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J009",
+    "title": "사무엘 소명과 왕정 여정",
+    "subtitle": "마지막 사사 사무엘이 왕정 시대를 연 여정",
+    "group": "OT",
+    "file": "OT/J009-samuel-calling-kingship-journey.json",
+    "status": "release"
   }
 ]

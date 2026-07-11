@@ -78,5 +78,13 @@
     "group": "OT",
     "file": "OT/J010-david-calling-kingdom-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J011",
+    "title": "솔로몬 성전 여정",
+    "subtitle": "지혜와 성전, 번영과 타락으로 이어진 솔로몬의 여정",
+    "group": "OT",
+    "file": "OT/J011-solomon-temple-journey.json",
+    "status": "release"
   }
 ]

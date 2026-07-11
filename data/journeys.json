@@ -126,5 +126,13 @@
     "group": "OT",
     "file": "OT/J016-southern-kingdom-fall-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J017",
+    "title": "바벨론 포로 여정",
+    "subtitle": "심판 속에서도 이어진 하나님의 임재와 보존, 그리고 귀환의 소망",
+    "group": "OT",
+    "file": "OT/J017-babylon-exile-journey.json",
+    "status": "release"
   }
 ]

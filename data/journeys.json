@@ -160,11 +160,11 @@
     "status": "release"
   },
   {
-    "id": "J021",
-    "title": "예수 탄생 여정",
-    "subtitle": "수태고지에서 열두 살 예수까지",
+    "id": "J022",
+    "title": "세례 요한과 예수님의 세례 여정",
+    "subtitle": "공생애의 시작",
     "group": "NT",
-    "file": "NT/J021-jesus-birth-journey.json",
+    "file": "OT/J022-john-baptist-and-baptism.json",
     "status": "release"
   }
 ]

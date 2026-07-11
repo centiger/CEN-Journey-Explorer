@@ -150,5 +150,13 @@
     "group": "OT",
     "file": "OT/J019-ezra-return-reform-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J020",
+    "title": "느헤미야 성벽 재건 여정",
+    "subtitle": "수산의 기도에서 예루살렘 성벽과 공동체 회복까지",
+    "group": "OT",
+    "file": "OT/J020-nehemiah-wall-restoration-journey.json",
+    "status": "release"
   }
 ]

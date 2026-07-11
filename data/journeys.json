@@ -94,5 +94,13 @@
     "group": "OT",
     "file": "OT/J012-divided-kingdom-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J013",
+    "title": "엘리야 선지자 여정",
+    "subtitle": "가뭄과 갈멜산, 호렙산과 승천으로 이어진 선지자의 여정",
+    "group": "OT",
+    "file": "OT/J013-elijah-prophetic-journey.json",
+    "status": "release"
   }
 ]

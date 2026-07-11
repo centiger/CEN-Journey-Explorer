@@ -1,4 +1,4 @@
-const CACHE = 'cen-journey-engine-v1.7.23b';
+const CACHE = 'cen-journey-engine-v1.7.29';
 const CORE = [
   './',
   './index.html',
@@ -32,6 +32,12 @@ const CORE = [
   './journeys/NT/J021-jesus-birth-childhood-journey.json',
   './journeys/NT/J022-public-ministry-beginning-journey.json',
   './journeys/NT/J023-galilee-early-ministry-journey.json',
+  './journeys/NT/J024-galilee-ministry-climax-journey.json',
+  './journeys/NT/J025-messiah-revelation-journey.json',
+  './journeys/NT/J026-judea-perea-final-ministry-journey.json',
+  './journeys/NT/J027-passion-week-journey.json',
+  './journeys/NT/J028-resurrection-ascension-journey.json',
+  './journeys/NT/J029-early-church-journey.json',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-512-maskable.png'

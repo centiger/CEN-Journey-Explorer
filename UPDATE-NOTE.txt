@@ -1,8 +1,16 @@
-신약 J021~J023 PWA 반영판
+CEN Journey Explorer 신약 Pack 2
 
-- journeys/NT 폴더 사용
-- journeys.json NT 경로 반영
-- canonical_name 기준 Place ID 검증
-- service-worker 캐시 갱신
+추가
+- J024 갈릴리 사역의 절정
+- J025 메시아 계시와 변화산
+- J026 유대·베레아 마지막 사역
+- J027 고난주간
+- J028 부활과 승천
+- J029 초대교회 확장
 
+모든 JSON은 journeys/NT 폴더 사용
+journeys.json 및 service-worker.js 갱신
+최신 메인 PWA places-master.json 기준 Place ID 검증
+
+업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

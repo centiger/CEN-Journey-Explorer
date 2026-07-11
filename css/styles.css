@@ -432,3 +432,30 @@ body{display:flex;justify-content:center}
   z-index:2;
   background:var(--surface);
 }
+
+
+/* v1.1 Journey Remaster intro */
+.journey-intro{display:grid;gap:14px;padding-bottom:14px}
+.intro-title{text-align:center;padding:8px 8px 2px}
+.intro-eyebrow{display:inline-block;font-size:.7rem;letter-spacing:.16em;font-weight:900;color:var(--accent);margin-bottom:8px}
+.intro-title h1{font-size:1.55rem;line-height:1.3;margin:0 0 8px}
+.intro-title p{margin:0 auto;color:var(--muted);line-height:1.65;max-width:560px;font-size:.9rem}
+.journey-facts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.journey-facts>div{min-height:84px;padding:14px;border:1px solid var(--line);border-radius:17px;background:var(--surface);box-shadow:0 5px 18px rgba(64,42,28,.05)}
+.journey-facts span{display:block;color:var(--muted);font-size:.76rem;margin-bottom:7px}
+.journey-facts strong{display:block;font-size:.96rem;line-height:1.35;color:var(--ink)}
+.intro-panel{padding:18px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:0 6px 20px rgba(64,42,28,.055)}
+.intro-panel h2{margin:0 0 11px;font-size:.92rem;color:var(--accent)}
+.intro-panel p{margin:0;line-height:1.72}
+.importance-panel{border-left:5px solid var(--accent)}
+.overview-route{display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 0}
+.overview-place{display:block;width:min(100%,340px);text-align:center;padding:10px 13px;border-radius:13px;background:var(--surface-2);font-weight:850}
+.overview-arrow{color:var(--accent-2);font-weight:900;line-height:1}
+.memory-panel{text-align:center;background:linear-gradient(180deg,var(--surface),#f8eee1)}
+.memory-panel blockquote{margin:3px auto 11px;max-width:520px;font-family:serif;font-size:1.05rem;line-height:1.75;color:var(--ink)}
+.memory-panel strong{font-size:.84rem;color:var(--accent)}
+.takeaway-panel{text-align:center;border-color:#d8c3aa}
+.takeaway-panel p{font-weight:850;font-size:1.02rem;color:var(--accent)}
+.estimate-note{margin:0 4px;color:var(--muted);font-size:.72rem;line-height:1.5;text-align:center}
+.intro-start{width:100%;font-size:1rem;padding:15px;box-shadow:0 9px 22px rgba(111,78,55,.2)}
+@media(max-width:380px){.journey-facts{grid-template-columns:1fr}.journey-facts>div{min-height:auto}}

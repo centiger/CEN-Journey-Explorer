@@ -38,5 +38,13 @@
     "group": "OT",
     "file": "OT/J005-exodus-liberation-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J006",
+    "title": "광야 훈련 여정",
+    "subtitle": "불순종과 연단을 지나 약속의 땅 앞에 이른 여정",
+    "group": "OT",
+    "file": "OT/J006-wilderness-training-journey.json",
+    "status": "release"
   }
 ]

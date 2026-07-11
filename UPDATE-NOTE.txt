@@ -1,11 +1,15 @@
-CEN Journey Explorer J010 업데이트
+CEN Journey Explorer J011 업데이트
 
 추가 여정
-- J010 다윗 소명과 왕국 여정
-- 베들레헴 → 기브아 → 아둘람 → 엔게디 → 시글락 → 헤브론 → 예루살렘 → 마하나임 → 예루살렘
-- 모든 정류장에 현재 places-master 기준 placeId 적용
+- J011 솔로몬 성전 여정
+- 기브온 산당 → 예루살렘 → 두로 → 예루살렘 → 에시온 게벨 → 예루살렘
+- 최신 places-master 기준 placeId 검증 완료
+  · 기브온 산당 P055
+  · 예루살렘 P065
+  · 두로 P119
+  · 에시온 게벨 P196
 - data/journeys.json 및 service-worker.js 갱신
-- 캐시 버전 v1.7.8
+- 캐시 버전 v1.7.9
 
 업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

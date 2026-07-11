@@ -1,4 +1,4 @@
-const CACHE = 'cen-journey-engine-v1.7.8';
+const CACHE = 'cen-journey-engine-v1.7.9';
 const CORE = [
   './',
   './index.html',
@@ -19,6 +19,7 @@ const CORE = [
   './journeys/OT/J008-judges-cycle-journey.json',
   './journeys/OT/J009-samuel-calling-kingship-journey.json',
   './journeys/OT/J010-david-calling-kingdom-journey.json',
+  './journeys/OT/J011-solomon-temple-journey.json',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-512-maskable.png'

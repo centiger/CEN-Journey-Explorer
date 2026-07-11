@@ -1,11 +1,12 @@
-CEN Journey Explorer J013 업데이트
+CEN Journey Explorer J014 업데이트
 
 추가 여정
-- J013 엘리야 선지자 여정
-- 디셉 → 그릿 시내 → 사르밧 → 갈멜산 → 이스르엘 → 브엘세바 → 시내산(호렙산) → 다메섹 → 아벨므홀라 → 요단강
+- J014 엘리사 기적과 사명 여정
+- 요단강 → 여리고 → 벧엘 → 수넴 → 길갈 → 요단강 → 도단 → 사마리아 → 다메섹 → 사마리아
 - 최신 places-master 기준 placeId 검증 완료
+- 사마리아는 canonical place P058로 정확히 연결
 - data/journeys.json 및 service-worker.js 갱신
-- 캐시 버전 v1.7.11
+- 캐시 버전 v1.7.13
 
 업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

@@ -164,7 +164,7 @@
     "title": "예수 탄생과 유년기 여정",
     "subtitle": "나사렛의 수태고지에서 베들레헴 탄생과 유년기까지",
     "group": "NT",
-    "file": "OT/J021-jesus-birth-childhood-journey.json",
+    "file": "NT/J021-jesus-birth-childhood-journey.json",
     "status": "release"
   },
   {
@@ -172,7 +172,7 @@
     "title": "세례 요한과 예수님의 세례 여정",
     "subtitle": "회개의 선포에서 세례와 광야 시험, 첫 표적까지",
     "group": "NT",
-    "file": "OT/J022-john-baptist-baptism-journey.json",
+    "file": "NT/J022-john-baptist-baptism-journey.json",
     "status": "release"
   },
   {
@@ -180,7 +180,7 @@
     "title": "갈릴리 초기 사역 여정",
     "subtitle": "가나와 가버나움, 수가를 거쳐 시작된 초기 사역",
     "group": "NT",
-    "file": "OT/J023-galilee-early-ministry-journey.json",
+    "file": "NT/J023-galilee-early-ministry-journey.json",
     "status": "release"
   },
   {
@@ -188,7 +188,7 @@
     "title": "갈릴리 확장 사역 여정",
     "subtitle": "가버나움에서 갈릴리 전역과 호수 건너편으로 확장된 사역",
     "group": "NT",
-    "file": "OT/J024-galilee-expanded-ministry-journey.json",
+    "file": "NT/J024-galilee-expanded-ministry-journey.json",
     "status": "release"
   },
   {
@@ -196,7 +196,7 @@
     "title": "갈릴리 마지막 사역과 변화산 여정",
     "subtitle": "두로와 시돈에서 신앙고백과 변화산까지",
     "group": "NT",
-    "file": "OT/J025-galilee-final-ministry-journey.json",
+    "file": "NT/J025-galilee-final-ministry-journey.json",
     "status": "release"
   }
 ]

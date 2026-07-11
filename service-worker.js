@@ -1,4 +1,4 @@
-const CACHE = 'cen-journey-engine-v1.7.17';
+const CACHE = 'cen-journey-engine-v1.7.18';
 const CORE = [
   './',
   './index.html',
@@ -27,6 +27,7 @@ const CORE = [
   './journeys/OT/J016-southern-kingdom-fall-journey.json',
   './journeys/OT/J017-babylon-exile-journey.json',
   './journeys/OT/J018-zerubbabel-return-temple-journey.json',
+  './journeys/OT/J019-ezra-return-reform-journey.json',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-512-maskable.png'

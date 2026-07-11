@@ -1,15 +1,14 @@
-CEN Journey Explorer J018 업데이트
+CEN Journey Explorer J019 업데이트
 
 추가 여정
-- J018 스룹바벨 귀환과 성전 재건 여정
-- 바벨론 → 예루살렘
-- 고레스 칙령, 귀환, 제단 회복, 성전 기초, 공사 중단, 선지자 격려, 제2성전 완공까지 구성
-- 성경에 귀환 세부 경로가 기록되지 않아 임의 중간 장소를 넣지 않음
-- 최신 places-master 기준 placeId 검증
+- J019 에스라 귀환과 말씀 개혁 여정
+- 바벨론 → 아하와 강 → 예루살렘
+- 최신 places-master 기준 Place ID 검증
   · 바벨론 P066
+  · 아하와 강은 독립 Place가 없어 바벨론 P066에 괄호 통합
   · 예루살렘 P065
 - data/journeys.json 갱신
-- service-worker 캐시 v1.7.17 갱신
+- service-worker 캐시 v1.7.18 갱신
 
 업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

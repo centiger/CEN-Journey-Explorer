@@ -54,5 +54,13 @@
     "group": "OT",
     "file": "OT/J007-joshua-conquest-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J008",
+    "title": "사사 시대 구원 여정",
+    "subtitle": "반복되는 죄와 회개 속에서 사사를 통해 구원받은 시대",
+    "group": "OT",
+    "file": "OT/J008-judges-cycle-journey.json",
+    "status": "release"
   }
 ]

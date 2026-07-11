@@ -182,5 +182,53 @@
     "group": "NT",
     "file": "NT/J023-galilee-early-ministry-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J024",
+    "title": "갈릴리 사역의 절정 여정",
+    "subtitle": "오병이어와 생명의 떡, 이방 지역 사역",
+    "group": "NT",
+    "file": "NT/J024-galilee-ministry-climax-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J025",
+    "title": "메시아 계시와 변화산 여정",
+    "subtitle": "베드로의 고백에서 변화산까지",
+    "group": "NT",
+    "file": "NT/J025-messiah-revelation-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J026",
+    "title": "유대·베레아 마지막 사역 여정",
+    "subtitle": "베다니와 여리고를 거쳐 예루살렘을 향한 길",
+    "group": "NT",
+    "file": "NT/J026-judea-perea-final-ministry-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J027",
+    "title": "고난주간 여정",
+    "subtitle": "예루살렘 입성에서 겟세마네와 골고다까지",
+    "group": "NT",
+    "file": "NT/J027-passion-week-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J028",
+    "title": "부활과 승천 여정",
+    "subtitle": "빈 무덤에서 엠마오와 갈릴리, 승천까지",
+    "group": "NT",
+    "file": "NT/J028-resurrection-ascension-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J029",
+    "title": "초대교회 확장 여정",
+    "subtitle": "예루살렘에서 사마리아와 이방 세계로",
+    "group": "NT",
+    "file": "NT/J029-early-church-journey.json",
+    "status": "release"
   }
 ]

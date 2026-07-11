@@ -46,5 +46,13 @@
     "group": "OT",
     "file": "OT/J006-wilderness-training-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J007",
+    "title": "여호수아 정복 여정",
+    "subtitle": "요단을 건너 가나안을 정복하고 언약을 새롭게 한 여정",
+    "group": "OT",
+    "file": "OT/J007-joshua-conquest-journey.json",
+    "status": "release"
   }
 ]

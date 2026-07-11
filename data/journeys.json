@@ -134,5 +134,13 @@
     "group": "OT",
     "file": "OT/J017-babylon-exile-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J018",
+    "title": "스룹바벨 귀환과 성전 재건 여정",
+    "subtitle": "바벨론 포로에서 돌아와 제단과 제2성전을 다시 세운 여정",
+    "group": "OT",
+    "file": "OT/J018-zerubbabel-return-temple-journey.json",
+    "status": "release"
   }
 ]

@@ -230,5 +230,37 @@
     "group": "NT",
     "file": "NT/J029-early-church-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J030",
+    "title": "바울 1차 전도여행",
+    "subtitle": "안디옥에서 구브로와 소아시아를 거쳐 다시 안디옥으로 돌아온 첫 선교 여정",
+    "group": "NT",
+    "file": "NT/J030-paul-first-missionary-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J031",
+    "title": "바울 2차 전도여행",
+    "subtitle": "마게도냐와 아가야로 복음이 확장된 두 번째 선교 여정",
+    "group": "NT",
+    "file": "NT/J031-paul-second-missionary-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J032",
+    "title": "바울 3차 전도여행",
+    "subtitle": "에베소 장기 사역과 여러 교회 방문 후 예루살렘으로 향한 세 번째 선교 여정",
+    "group": "NT",
+    "file": "NT/J032-paul-third-missionary-journey.json",
+    "status": "release"
+  },
+  {
+    "id": "J033",
+    "title": "바울 로마 압송 여정",
+    "subtitle": "가이사랴 재판과 지중해 항해, 난파를 거쳐 로마에 도착한 마지막 여정",
+    "group": "NT",
+    "file": "NT/J033-paul-rome-voyage-journey.json",
+    "status": "release"
   }
 ]

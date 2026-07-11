@@ -70,5 +70,13 @@
     "group": "OT",
     "file": "OT/J009-samuel-calling-kingship-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J010",
+    "title": "다윗 소명과 왕국 여정",
+    "subtitle": "목동에서 왕으로 세워지기까지의 연단과 회복의 여정",
+    "group": "OT",
+    "file": "OT/J010-david-calling-kingdom-journey.json",
+    "status": "release"
   }
 ]

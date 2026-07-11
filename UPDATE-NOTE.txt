@@ -1,10 +1,8 @@
-CEN Journey Explorer 신약 Pack 1 수정판
+신약 J021~J023 PWA 반영판
 
-수정 내용
-- J021~J025 JSON을 journeys/NT 폴더로 이동
-- data/journeys.json의 file 경로를 NT/...로 수정
-- service-worker.js 캐시 경로를 journeys/NT/...로 수정
-- group은 NT 유지
+- journeys/NT 폴더 사용
+- journeys.json NT 경로 반영
+- canonical_name 기준 Place ID 검증
+- service-worker 캐시 갱신
 
-업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

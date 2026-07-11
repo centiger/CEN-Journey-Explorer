@@ -1,11 +1,17 @@
-CEN Journey Explorer J016 업데이트
+CEN Journey Explorer J017 업데이트
 
 추가 여정
-- J016 남유다 최후의 여정
-- 예루살렘 → 므깃도 → 갈그미스 → 예루살렘 → 립나 → 바벨론 → 미스바
+- J017 바벨론 포로 여정
+- 예루살렘 → 바벨론 → 그발 강 → 바벨론 → 메대 → 수산 → 바벨론
+- 두라 평야는 독립 Place가 없어 바벨론에 괄호 통합
 - 최신 places-master 기준 placeId 검증 완료
-- data/journeys.json 및 service-worker.js 갱신
-- 캐시 버전 v1.7.15
+  · 예루살렘 P065
+  · 바벨론 P066
+  · 그발 강 P067
+  · 메대 P130
+  · 수산 P068
+- data/journeys.json 갱신
+- service-worker 캐시 v1.7.16 갱신
 
 업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

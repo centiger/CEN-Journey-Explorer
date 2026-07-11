@@ -158,5 +158,13 @@
     "group": "OT",
     "file": "OT/J020-nehemiah-wall-restoration-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J021",
+    "title": "예수 탄생 여정",
+    "subtitle": "수태고지에서 열두 살 예수까지",
+    "group": "NT",
+    "file": "NT/J021-jesus-birth-journey.json",
+    "status": "release"
   }
 ]

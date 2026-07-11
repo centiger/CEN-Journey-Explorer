@@ -452,7 +452,7 @@ body{display:flex;justify-content:center}
 .overview-place{display:block;width:min(100%,340px);text-align:center;padding:10px 13px;border-radius:13px;background:var(--surface-2);font-weight:850}
 .overview-arrow{color:var(--accent-2);font-weight:900;line-height:1}
 .memory-panel{text-align:center;background:linear-gradient(180deg,var(--surface),#f8eee1)}
-.memory-panel blockquote{margin:3px auto 11px;max-width:520px;font-family:serif;font-size:1.05rem;line-height:1.75;color:var(--ink)}
+.memory-panel blockquote{margin:3px auto 11px;max-width:520px;font-size:1.12rem;font-weight:700;line-height:1.9;color:var(--ink);font-family:inherit}
 .memory-panel strong{font-size:.84rem;color:var(--accent)}
 .takeaway-panel{text-align:center;border-color:#d8c3aa}
 .takeaway-panel p{font-weight:850;font-size:1.02rem;color:var(--accent)}

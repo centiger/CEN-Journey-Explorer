@@ -118,5 +118,13 @@
     "group": "OT",
     "file": "OT/J015-northern-kingdom-fall-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J016",
+    "title": "남유다 최후의 여정",
+    "subtitle": "요시야 개혁에서 예루살렘 함락과 바벨론 포로까지",
+    "group": "OT",
+    "file": "OT/J016-southern-kingdom-fall-journey.json",
+    "status": "release"
   }
 ]

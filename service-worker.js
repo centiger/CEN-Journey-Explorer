@@ -1,4 +1,4 @@
-const CACHE = 'cen-journey-engine-v1.7.29';
+const CACHE = 'cen-journey-engine-v1.7.33';
 const CORE = [
   './',
   './index.html',
@@ -38,6 +38,10 @@ const CORE = [
   './journeys/NT/J027-passion-week-journey.json',
   './journeys/NT/J028-resurrection-ascension-journey.json',
   './journeys/NT/J029-early-church-journey.json',
+  './journeys/NT/J030-paul-first-missionary-journey.json',
+  './journeys/NT/J031-paul-second-missionary-journey.json',
+  './journeys/NT/J032-paul-third-missionary-journey.json',
+  './journeys/NT/J033-paul-rome-voyage-journey.json',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-512-maskable.png'

@@ -1,16 +1,11 @@
-CEN Journey Explorer 신약 Pack 2
+CEN Journey Explorer 신약 Pack 3
 
-추가
-- J024 갈릴리 사역의 절정
-- J025 메시아 계시와 변화산
-- J026 유대·베레아 마지막 사역
-- J027 고난주간
-- J028 부활과 승천
-- J029 초대교회 확장
+- J030 바울 1차 전도여행
+- J031 바울 2차 전도여행
+- J032 바울 3차 전도여행
+- J033 바울 로마 압송 여정
+- journeys/NT 폴더 사용
+- journeys.json, service-worker.js 갱신
+- 최신 places-master 기준 Place ID 검증
 
-모든 JSON은 journeys/NT 폴더 사용
-journeys.json 및 service-worker.js 갱신
-최신 메인 PWA places-master.json 기준 Place ID 검증
-
-업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

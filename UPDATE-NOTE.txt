@@ -1,12 +1,17 @@
-CEN Journey Explorer J014 업데이트
+CEN Journey Explorer J015 업데이트
 
 추가 여정
-- J014 엘리사 기적과 사명 여정
-- 요단강 → 여리고 → 벧엘 → 수넴 → 길갈 → 요단강 → 도단 → 사마리아 → 다메섹 → 사마리아
-- 최신 places-master 기준 placeId 검증 완료
-- 사마리아는 canonical place P058로 정확히 연결
-- data/journeys.json 및 service-worker.js 갱신
-- 캐시 버전 v1.7.13
+- J015 북이스라엘 최후의 여정
+- 벧엘 → 사마리아 → 갈멜산 → 도단 → 사마리아 → 메대
+- 할라·고산 하볼 강가·메대 성읍들은 독립 Place가 없어 메대에 괄호 통합
+- 최신 메인 ZIP의 places-master.json 기준 Place ID 검증
+  · 벧엘 P056
+  · 사마리아 P058
+  · 갈멜산 P059
+  · 도단 P060
+  · 메대 P130
+- data/journeys.json 갱신
+- service-worker 캐시 v1.7.14 갱신
 
 업로드
 압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

@@ -1,0 +1,46 @@
+{
+  "id": "J022",
+  "slug": "john-baptist-and-baptism",
+  "title": "세례 요한과 예수님의 세례 여정",
+  "summary": "세례 요한의 사역부터 예수님의 세례, 광야 시험, 첫 제자와 첫 표적까지의 여정",
+  "group": "OT",
+  "status": "release",
+  "stops": [
+    {
+      "order": 1,
+      "place": "예루살렘",
+      "label": "사가랴",
+      "verse": "눅 1:5-25"
+    },
+    {
+      "order": 2,
+      "place": "유대 광야",
+      "label": "회개의 세례",
+      "verse": "마 3:1-6"
+    },
+    {
+      "order": 3,
+      "place": "요단강",
+      "label": "예수님의 세례",
+      "verse": "마 3:13-17"
+    },
+    {
+      "order": 4,
+      "place": "광야",
+      "label": "40일 시험",
+      "verse": "마 4:1-11"
+    },
+    {
+      "order": 5,
+      "place": "요단강",
+      "label": "첫 제자",
+      "verse": "요 1:35-42"
+    },
+    {
+      "order": 6,
+      "place": "가나",
+      "label": "혼인잔치",
+      "verse": "요 2:1-11"
+    }
+  ]
+}

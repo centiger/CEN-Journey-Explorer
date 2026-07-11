@@ -1,4 +1,4 @@
-const CACHE = 'cen-journey-engine-v1.7.21';
+const CACHE = 'cen-journey-engine-v1.7.25';
 const CORE = [
   './',
   './index.html',
@@ -29,11 +29,14 @@ const CORE = [
   './journeys/OT/J018-zerubbabel-return-temple-journey.json',
   './journeys/OT/J019-ezra-return-reform-journey.json',
   './journeys/OT/J020-nehemiah-wall-restoration-journey.json',
+  './journeys/OT/J021-jesus-birth-childhood-journey.json',
+  './journeys/OT/J022-john-baptist-baptism-journey.json',
+  './journeys/OT/J023-galilee-early-ministry-journey.json',
+  './journeys/OT/J024-galilee-expanded-ministry-journey.json',
+  './journeys/OT/J025-galilee-final-ministry-journey.json',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-512-maskable.png'
-
-  './journeys/OT/J022-john-baptist-and-baptism.json',
 ];
 
 self.addEventListener('install', event => {

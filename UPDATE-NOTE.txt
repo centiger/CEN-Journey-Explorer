@@ -1,1 +1,17 @@
-J021 예수 탄생 여정 추가
+CEN Journey Explorer 신약 Pack 1
+
+추가 여정
+- J021 예수 탄생과 유년기 여정
+- J022 세례 요한과 예수님의 세례 여정
+- J023 갈릴리 초기 사역 여정
+- J024 갈릴리 확장 사역 여정
+- J025 갈릴리 마지막 사역과 변화산 여정
+
+구조
+- 기존 엔진 호환을 위해 실제 JSON 파일은 journeys/OT 폴더에 저장
+- journeys.json의 group 값은 NT로 구분
+- 최신 메인 PWA places-master.json 기준 Place ID 검증
+- service-worker 캐시 v1.7.25
+
+업로드
+압축을 풀고 저장소 루트에 그대로 덮어쓰세요.

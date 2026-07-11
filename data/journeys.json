@@ -102,5 +102,13 @@
     "group": "OT",
     "file": "OT/J013-elijah-prophetic-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J014",
+    "title": "엘리사 기적과 사명 여정",
+    "subtitle": "치유와 공급, 보호와 예언으로 이어진 선지자의 여정",
+    "group": "OT",
+    "file": "OT/J014-elisha-miracles-journey.json",
+    "status": "release"
   }
 ]

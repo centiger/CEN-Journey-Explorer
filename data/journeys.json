@@ -110,5 +110,13 @@
     "group": "OT",
     "file": "OT/J014-elisha-miracles-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J015",
+    "title": "북이스라엘 최후의 여정",
+    "subtitle": "벧엘의 금송아지에서 사마리아 함락과 앗수르 포로까지",
+    "group": "OT",
+    "file": "OT/J015-northern-kingdom-fall-journey.json",
+    "status": "release"
   }
 ]

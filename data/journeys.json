@@ -30,5 +30,13 @@
     "group": "OT",
     "file": "OT/J004-joseph-providence-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J005",
+    "title": "출애굽 해방 여정",
+    "subtitle": "종살이에서 벗어나 하나님의 백성으로 세워진 여정",
+    "group": "OT",
+    "file": "OT/J005-exodus-liberation-journey.json",
+    "status": "release"
   }
 ]

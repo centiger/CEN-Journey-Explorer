@@ -86,5 +86,13 @@
     "group": "OT",
     "file": "OT/J011-solomon-temple-journey.json",
     "status": "release"
+  },
+  {
+    "id": "J012",
+    "title": "왕국 분열 여정",
+    "subtitle": "예루살렘과 벧엘·단으로 갈라진 두 왕국의 시작",
+    "group": "OT",
+    "file": "OT/J012-divided-kingdom-journey.json",
+    "status": "release"
   }
 ]

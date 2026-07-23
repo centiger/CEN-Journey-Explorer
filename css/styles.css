@@ -459,3 +459,27 @@ body{display:flex;justify-content:center}
 .estimate-note{margin:0 4px;color:var(--muted);font-size:.72rem;line-height:1.5;text-align:center}
 .intro-start{width:100%;font-size:1rem;padding:15px;box-shadow:0 9px 22px rgba(111,78,55,.2)}
 @media(max-width:380px){.journey-facts{grid-template-columns:1fr}.journey-facts>div{min-height:auto}}
+
+
+/* CEN Bible 2.0 성경 장절 연결 */
+.bible-ref-button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 800;
+  line-height: inherit;
+  padding: 4px 8px;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 5px;
+  border-radius: 8px;
+  touch-action: manipulation;
+}
+.bible-ref-button:active { opacity: .58; transform: scale(.98); }
+.bible-ref-button:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.memory-ref { display: inline-block; margin-top: 2px; }

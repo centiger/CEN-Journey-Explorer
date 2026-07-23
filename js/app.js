@@ -36,6 +36,46 @@
 
   const safeText = (value, fallback = '') => value == null ? fallback : String(value);
 
+  function normalizeBibleRef(value) {
+    let ref = safeText(value, '').trim();
+    if (!ref) return '';
+
+    // 여러 구절이 함께 적혀 있으면 첫 번째 대표 구절만 사용합니다.
+    ref = ref.split(/[;；]/)[0].trim();
+
+    // 괄호 안 설명과 앞뒤 따옴표는 연결값에서 제거합니다.
+    ref = ref.replace(/[“”"']/g, '').trim();
+
+    // "창세기 6~9장", "창세기 6장~9장" → "창세기 6:1"
+    let match = ref.match(/^(.+?)\s+(\d+)\s*장?\s*[~～\-–—]\s*\d+\s*장(?:\s*\d+\s*절)?$/);
+    if (match) return `${match[1].trim()} ${match[2]}:1`;
+
+    // "창세기 6장", "창세기 6" → "창세기 6:1"
+    match = ref.match(/^(.+?)\s+(\d+)\s*장?$/);
+    if (match) return `${match[1].trim()} ${match[2]}:1`;
+
+    // "창세기 50:20~21", "출애굽기 14:14" 등은 시작 장절만 사용합니다.
+    match = ref.match(/^(.+?)\s+(\d+)\s*[:：]\s*(\d+)/);
+    if (match) return `${match[1].trim()} ${match[2]}:${match[3]}`;
+
+    return ref;
+  }
+
+  function openBibleRef(ref, customUrl = '') {
+    const normalizedRef = normalizeBibleRef(ref);
+    if (!normalizedRef) {
+      alert('연결할 대표 성경구절이 없습니다.');
+      return;
+    }
+
+    const base = 'https://centiger.github.io/CEN-Bible2.0/';
+    const returnTo = location.href;
+    const url = customUrl ||
+      `${base}?ref=${encodeURIComponent(normalizedRef)}&source=journey&returnTo=${encodeURIComponent(returnTo)}`;
+
+    window.location.href = url;
+  }
+
   async function fetchJson(url) {
     const response = await fetch(url, { cache: 'no-store' });
     if (!response.ok) throw new Error(`${url} 로드 실패 (${response.status})`);
@@ -227,7 +267,7 @@
         <section class="intro-panel memory-panel">
           <h2>📖 대표 성구</h2>
           ${memory.text ? `<blockquote>“${safeText(memory.text)}”</blockquote>` : ''}
-          <strong>${safeText(memory.ref, '')}</strong>
+          ${memory.ref ? `<button id="memoryVerseBtn" class="bible-ref-button memory-ref" type="button" aria-label="${safeText(memory.ref)} 말씀 보기">${safeText(memory.ref)}</button>` : ''}
         </section>
 
         <section class="intro-panel takeaway-panel">
@@ -239,6 +279,9 @@
 
         <button id="startJourneyBtn" class="btn btn-primary intro-start" type="button">여정 탐험 시작 →</button>
       </section>`;
+
+    const memoryVerseBtn = document.getElementById('memoryVerseBtn');
+    if (memoryVerseBtn) memoryVerseBtn.addEventListener('click', () => openBibleRef(memory.ref, memory.url || memory.bibleUrl || ''));
 
     document.getElementById('startJourneyBtn').addEventListener('click', () => {
       state.stopIndex = 0;
@@ -447,7 +490,7 @@
 
         <section class="info-block">
           <h2>📜 대표 성경구절</h2>
-          <p class="verse-ref">${safeText(stop.verse, '성경구절을 입력해 주세요.')}</p>
+          ${stop.verse ? `<button id="inlineVerseBtn" class="bible-ref-button verse-ref" type="button" aria-label="${safeText(stop.verse)} 말씀 보기">${safeText(stop.verse)}</button>` : `<p class="verse-ref">성경구절을 입력해 주세요.</p>`}
           ${stop.verseText ? `<p style="margin-top:8px">${safeText(stop.verseText)}</p>` : ''}
         </section>
 
@@ -468,6 +511,8 @@
 
     document.getElementById('mapBtn').addEventListener('click', () => showMaps(resolved));
     document.getElementById('verseBtn').addEventListener('click', () => showVerse(stop));
+    const inlineVerseBtn = document.getElementById('inlineVerseBtn');
+    if (inlineVerseBtn) inlineVerseBtn.addEventListener('click', () => showVerse(stop));
     document.getElementById('prevBtn').addEventListener('click', () => {
       if (state.stopIndex > 0) animateToStop(state.stopIndex - 1, 'prev');
     });
@@ -605,73 +650,8 @@
     </a>`;
   }
 
-  const BIBLE_BOOK_ALIASES = {
-    '창':'창세기','출':'출애굽기','레':'레위기','민':'민수기','신':'신명기',
-    '수':'여호수아','삿':'사사기','룻':'룻기','삼상':'사무엘상','삼하':'사무엘하',
-    '왕상':'열왕기상','왕하':'열왕기하','대상':'역대상','대하':'역대하',
-    '스':'에스라','느':'느헤미야','에':'에스더','욥':'욥기','시':'시편',
-    '잠':'잠언','전':'전도서','아':'아가','사':'이사야','렘':'예레미야',
-    '애':'예레미야애가','겔':'에스겔','단':'다니엘','호':'호세아','욜':'요엘',
-    '암':'아모스','옵':'오바댜','욘':'요나','미':'미가','나':'나훔','합':'하박국',
-    '습':'스바냐','학':'학개','슥':'스가랴','말':'말라기',
-    '마':'마태복음','막':'마가복음','눅':'누가복음','요':'요한복음',
-    '행':'사도행전','롬':'로마서','고전':'고린도전서','고후':'고린도후서',
-    '갈':'갈라디아서','엡':'에베소서','빌':'빌립보서','골':'골로새서',
-    '살전':'데살로니가전서','살후':'데살로니가후서','딤전':'디모데전서',
-    '딤후':'디모데후서','딛':'디도서','몬':'빌레몬서','히':'히브리서',
-    '약':'야고보서','벧전':'베드로전서','벧후':'베드로후서',
-    '요일':'요한일서','요이':'요한이서','요삼':'요한삼서','유':'유다서','계':'요한계시록'
-  };
-
-  function normalizeBibleRef(rawRef) {
-    const raw = safeText(rawRef, '')
-      .replace(/[－–—]/g, '-')
-      .replace(/[∼～]/g, '~')
-      .replace(/\s+/g, ' ')
-      .trim();
-    if (!raw) return '';
-
-    // 복수 참조는 첫 번째 대표 구절만 사용합니다.
-    const first = raw.split(/[;,]/)[0].trim();
-
-    // 예: 창세기 6~9장, 창세기 6장~9장, 창세기 6-9장 → 창세기 6:1
-    let match = first.match(/^(.+?)\s*(\d+)\s*장?\s*[~\-]\s*(\d+)\s*장(?:\s*\d+\s*절)?$/);
-    if (match) {
-      const book = BIBLE_BOOK_ALIASES[match[1].trim()] || match[1].trim();
-      return `${book} ${Number(match[2])}:1`;
-    }
-
-    // 예: 창세기 6장, 창세기 6 → 창세기 6:1
-    match = first.match(/^(.+?)\s*(\d+)\s*장?$/);
-    if (match) {
-      const book = BIBLE_BOOK_ALIASES[match[1].trim()] || match[1].trim();
-      return `${book} ${Number(match[2])}:1`;
-    }
-
-    // 예: 수 1:10~11, 창세기 11:31~12:4 → 여호수아 1:10, 창세기 11:31
-    match = first.match(/^(.+?)\s*(\d+)\s*[:장]\s*(\d+)\s*절?/);
-    if (match) {
-      const book = BIBLE_BOOK_ALIASES[match[1].trim()] || match[1].trim();
-      return `${book} ${Number(match[2])}:${Number(match[3])}`;
-    }
-
-    return first;
-  }
-
   function showVerse(stop) {
-    const rawRef = stop.bibleRef || stop.verse;
-    const ref = normalizeBibleRef(rawRef);
-    if (!ref) {
-      alert('연결할 대표 성경구절이 없습니다.');
-      return;
-    }
-
-    const base = 'https://centiger.github.io/CEN-Bible2.0/';
-    const returnTo = location.href;
-    const url = stop.bibleUrl ||
-      `${base}?ref=${encodeURIComponent(ref)}&source=journey&returnTo=${encodeURIComponent(returnTo)}`;
-
-    window.open(url, '_blank', 'noopener,noreferrer');
+    openBibleRef(stop.bibleRef || stop.verse, stop.bibleUrl || '');
   }
 
   function renderComplete() {

@@ -623,41 +623,53 @@
     '요일':'요한일서','요이':'요한이서','요삼':'요한삼서','유':'유다서','계':'요한계시록'
   };
 
-  function normalizeBibleRefForLink(rawRef) {
-    const cleaned = safeText(rawRef, '')
+  function normalizeBibleRef(rawRef) {
+    const raw = safeText(rawRef, '')
       .replace(/[－–—]/g, '-')
       .replace(/[∼～]/g, '~')
       .replace(/\s+/g, ' ')
       .trim();
+    if (!raw) return '';
 
-    if (!cleaned) return '';
+    // 복수 참조는 첫 번째 대표 구절만 사용합니다.
+    const first = raw.split(/[;,]/)[0].trim();
 
-    // 복수 구절 표기는 첫 번째 대표 구절만 CEN Bible에 전달합니다.
-    const firstPart = cleaned.split(/[;,，；]/)[0].trim();
-    const match = firstPart.match(/^(.+?)\s*(\d+)\s*(?:장)?(?:\s*[:：]\s*(\d+))?/);
-    if (!match) return cleaned;
+    // 예: 창세기 6~9장, 창세기 6장~9장, 창세기 6-9장 → 창세기 6:1
+    let match = first.match(/^(.+?)\s*(\d+)\s*장?\s*[~\-]\s*(\d+)\s*장(?:\s*\d+\s*절)?$/);
+    if (match) {
+      const book = BIBLE_BOOK_ALIASES[match[1].trim()] || match[1].trim();
+      return `${book} ${Number(match[2])}:1`;
+    }
 
-    const rawBook = match[1].trim();
-    const book = BIBLE_BOOK_ALIASES[rawBook] || rawBook;
-    const chapter = Number(match[2]);
-    const verse = Number(match[3] || 1);
+    // 예: 창세기 6장, 창세기 6 → 창세기 6:1
+    match = first.match(/^(.+?)\s*(\d+)\s*장?$/);
+    if (match) {
+      const book = BIBLE_BOOK_ALIASES[match[1].trim()] || match[1].trim();
+      return `${book} ${Number(match[2])}:1`;
+    }
 
-    if (!book || !Number.isFinite(chapter) || chapter < 1) return cleaned;
-    return `${book} ${chapter}:${Number.isFinite(verse) && verse > 0 ? verse : 1}`;
+    // 예: 수 1:10~11, 창세기 11:31~12:4 → 여호수아 1:10, 창세기 11:31
+    match = first.match(/^(.+?)\s*(\d+)\s*[:장]\s*(\d+)\s*절?/);
+    if (match) {
+      const book = BIBLE_BOOK_ALIASES[match[1].trim()] || match[1].trim();
+      return `${book} ${Number(match[2])}:${Number(match[3])}`;
+    }
+
+    return first;
   }
 
   function showVerse(stop) {
-    const displayRef = safeText(stop.bibleRef || stop.verse, '').trim();
-    if (!displayRef) {
+    const rawRef = stop.bibleRef || stop.verse;
+    const ref = normalizeBibleRef(rawRef);
+    if (!ref) {
       alert('연결할 대표 성경구절이 없습니다.');
       return;
     }
 
-    const linkRef = normalizeBibleRefForLink(displayRef);
     const base = 'https://centiger.github.io/CEN-Bible2.0/';
     const returnTo = location.href;
     const url = stop.bibleUrl ||
-      `${base}?ref=${encodeURIComponent(linkRef)}&source=journey&returnTo=${encodeURIComponent(returnTo)}`;
+      `${base}?ref=${encodeURIComponent(ref)}&source=journey&returnTo=${encodeURIComponent(returnTo)}`;
 
     window.open(url, '_blank', 'noopener,noreferrer');
   }
